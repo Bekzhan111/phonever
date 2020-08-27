@@ -1,3 +1,4 @@
+const form = document.getElementById('add-salon');
 window.onload=function () {
   render();
 };
@@ -20,16 +21,14 @@ function phoneAuth() {
         alert(error.message);
     });
 }
-var fullName = document.getElementById("full_name").value;
-  var salonname = document.getElementById("salonname").value;
 function codeverify() {
     var code=document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
         alert("Successfully registered");
       db.collection("salon").add({
-        full_name: fullName,
-        salon_name: salonname,
-        phone_number: number.value
+        full_name: form.full_name.value,
+        salon_name: form.salonname.value,
+        phone_number: form.number.value
       });
         var user=result.user;
         console.log(user);
