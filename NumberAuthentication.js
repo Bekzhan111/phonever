@@ -26,9 +26,9 @@ function codeverify() {
     var code=document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
         alert("Successfully registered");
-      db.collection("salons").add({
-        full_name: fullName.value,
-        salon_name: salonname.value,
+      db.collection("salon").add({
+        full_name: fullName,
+        salon_name: salonname,
         phone_number: number.value
       });
         var user=result.user;
