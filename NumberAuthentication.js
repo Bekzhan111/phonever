@@ -26,16 +26,14 @@ function codeverify() {
     var code=document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
         alert("Successfully registered");
-        var user=result.user;
-        console.log(user);
-    }).catch(function (error) {
-        alert(error.message);
-    });
-}
-if(codeverify()){
       db.collection("salons").add({
         full_name: fullName.value,
         salon_name: salonname.value,
         phone_number: number.value
       });
+        var user=result.user;
+        console.log(user);
+    }).catch(function (error) {
+        alert(error.message);
+    });
 }
