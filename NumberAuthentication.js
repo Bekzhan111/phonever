@@ -1,3 +1,4 @@
+const db = firebase.firestore();
 const form = document.getElementById('add-salon');
 window.onload=function () {
   render();
