@@ -20,12 +20,19 @@ function phoneAuth() {
         alert(error.message);
     });
 }
+var fullName = document.getElementById("full_name").value;
+  var salonname = document.getElementById("salonname").value;
 function codeverify() {
     var code=document.getElementById('verificationCode').value;
     coderesult.confirm(code).then(function (result) {
         alert("Successfully registered");
         var user=result.user;
         console.log(user);
+      db.collection("salons").add({
+        full_name: fullName.value,
+        salon_name: salonname.value,
+        phone_number: number.value
+      });
     }).catch(function (error) {
         alert(error.message);
     });
