@@ -28,12 +28,14 @@ function codeverify() {
         alert("Successfully registered");
         var user=result.user;
         console.log(user);
+    }).catch(function (error) {
+        alert(error.message);
+    });
+}
+if(codeverify()){
       db.collection("salons").add({
         full_name: fullName.value,
         salon_name: salonname.value,
         phone_number: number.value
       });
-    }).catch(function (error) {
-        alert(error.message);
-    });
 }
